@@ -1,0 +1,5 @@
+1. Agregar un nuevo juego o expansión a la colección. (LISTO)
+2. Eliminar un objeto específico por su identificador. (LISTO)
+3. Mostrar todos los objetos de la colección de forma ordenada por título. (LISTO)
+4. Filtrar los objetos por género.
+5. Modificar un único atributo de un objeto sin afectar el resto de sus datos.
