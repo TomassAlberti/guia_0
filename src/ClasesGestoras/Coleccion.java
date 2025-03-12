@@ -56,4 +56,46 @@ public class Coleccion {
         }
         return xtitulo.toString();
     }
+    public String mostrarXgenero(String genero){
+        StringBuilder xgenero = new StringBuilder();
+        for(Biblioteca b : juegosYexpansiones.values()){
+            if(b.getGenero().equals(genero)){
+                xgenero.append(b);
+            }
+        }
+        if(xgenero.length()<=0){
+            return "No hay ningun elemento con ese genero";
+        }
+        return xgenero.toString();
+    }
+    public String modificarDatoString(int id, String tipoDeDato, String dato) throws EFechaDeLanzamientoNegativa,EVersionNegativa{
+        String msj = "Modificado con exito!";
+        if(juegosYexpansiones.containsKey(id)){
+            Biblioteca b = juegosYexpansiones.get(id);
+            if(tipoDeDato.equalsIgnoreCase("titulo")){
+                b.setTitulo(dato);
+            }else if(tipoDeDato.equalsIgnoreCase("genero")){
+                b.setGenero(dato);
+            }else if(tipoDeDato.equalsIgnoreCase("fechaDeLanzamiento")){
+                Expansion j = (Expansion) b;
+                int fecha = Integer.parseInt(dato);
+                if(fecha<0){
+                    throw new EFechaDeLanzamientoNegativa("La fecha de lanzamiento no puede ser negativa");
+                }else{
+                    ((Expansion) b).setFechaDeLanzamiento(fecha);
+                }
+            }else if(tipoDeDato.equalsIgnoreCase("creador")){
+                b.setCreador(dato);
+            }else if(tipoDeDato.equalsIgnoreCase("numero de version")){
+                Juego j = (Juego) b;
+                int version = Integer.parseInt(dato);
+                if(version>=0){
+                    ((Juego) b).setNroVersion(version);
+                }else{
+                    throw new EVersionNegativa("La version no puede ser negativa");
+                }
+            }
+        }
+        return msj;
+    }
 }

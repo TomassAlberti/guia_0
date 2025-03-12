@@ -31,6 +31,22 @@ public abstract class Biblioteca implements Comparable<Biblioteca> {
         this.titulo = titulo;
     }
 
+    public String getGenero() {
+        return Genero;
+    }
+
+    public String getCreador() {
+        return creador;
+    }
+
+    public void setCreador(String creador) {
+        this.creador = creador;
+    }
+
+    public void setGenero(String genero) {
+        Genero = genero;
+    }
+
     @Override
     public int compareTo(Biblioteca o) {
         return this.titulo.compareTo(o.getTitulo());
