@@ -17,4 +17,11 @@ public class Expansion extends Biblioteca{
     public void setFechaDeLanzamiento(int fechaDeLanzamiento) {
         this.fechaDeLanzamiento = fechaDeLanzamiento;
     }
+
+    @Override
+    public String toString() {
+        return "Expansion{" + super.toString() +
+                "fechaDeLanzamiento=" + fechaDeLanzamiento +
+                "} ";
+    }
 }

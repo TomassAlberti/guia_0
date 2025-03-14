@@ -10,10 +10,10 @@ import Excepciones.IErrorId;
 
 import java.util.Scanner;
 
-public class Menuu {
-    public void mostrarMenu() {
+public class ClaseMenu {
+    public boolean mostrarMenu() {
         int opcion = 0;
-        Juego juego1 = new Juego("Rapidos y Furiosos", "Tomas Alberti", "Accion", 1, 1);
+        Juego juego1 = new Juego("Rapidos y Furiosos", "Tomas Alberti", "Accion", 5, 1);
         Juego juego2 = new Juego("Hogwarts Legacy", "Tomas Alberti", "Aventura", 2, 3);
         Juego juego3 = new Juego("Fornite", "Tomas Alberti", "Accion", 1, 3);
         Expansion exp1 = new Expansion("Superman", "El master", "Accion", 23, 23 / 02 / 24);
@@ -30,6 +30,7 @@ public class Menuu {
             System.out.println("Ingrese 4 si desea mostrar por titulo");
             System.out.println("Ingrese 5 para modificar un atributo de un objeto ");
             System.out.println("Ingrese 6 si desea filtrar los objetos por genero");
+            System.out.println("Ingrese 7 para mostrar todo lo ingresado");
             System.out.println("Ingrese 0 para salir");
             opcion = sn.nextInt();
 
@@ -101,6 +102,8 @@ public class Menuu {
                                 sn.nextLine();
 
                                 System.out.println(cole.modificarDatoString(idAux, dato, datoAmodificar));
+
+                                break;
                             }
                         }
                     } while (opcion1 != 0);
@@ -113,8 +116,12 @@ public class Menuu {
 
                     System.out.println(cole.mostrarXgenero(generoAux));
                 }
+                case 7:{
+                    System.out.println(cole.mostrarTodo());
+                }
             }
 
         } while (opcion != 0);
+        return false;
     }
 }

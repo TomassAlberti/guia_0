@@ -49,7 +49,7 @@ public abstract class Biblioteca implements Comparable<Biblioteca> {
 
     @Override
     public int compareTo(Biblioteca o) {
-        return this.titulo.compareTo(o.getTitulo());
+        return this.titulo.compareTo(o.getGenero());
     }
 
     @Override

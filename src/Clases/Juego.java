@@ -17,4 +17,10 @@ public class Juego extends Biblioteca {
         this.nroVersion = nroVersion;
     }
 
+    @Override
+    public String toString() {
+        return "Juego{" + super.toString() +
+                "nroVersion=" + nroVersion +
+                "} ";
+    }
 }

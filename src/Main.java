@@ -1,8 +1,9 @@
 import java.awt.*;
+import Menu.ClaseMenu;
 
 public class Main {
     public static void main(String[] args) {
-        Menu menu1 = new Menu();
-        System.out.println(menu1);
+        ClaseMenu menu = new ClaseMenu();
+        System.out.println(menu.mostrarMenu());
     }
 }

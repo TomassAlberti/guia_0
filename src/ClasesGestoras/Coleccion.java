@@ -52,18 +52,19 @@ public class Coleccion {
         lista.sort(Comparator.comparing(entry -> entry.getValue().getTitulo()));
 
         for(Map.Entry<Integer, Biblioteca> entry : lista){
-            xtitulo.append(entry.getKey());
+            xtitulo.append(entry + "\n");
         }
         return xtitulo.toString();
     }
     public String mostrarXgenero(String genero){
         StringBuilder xgenero = new StringBuilder();
+
         for(Biblioteca b : juegosYexpansiones.values()){
-            if(b.getGenero().equals(genero)){
+            if(b.getGenero().equalsIgnoreCase(genero)){
                 xgenero.append(b);
             }
         }
-        if(xgenero.length()<=0){
+        if(xgenero.length() <=0){
             return "No hay ningun elemento con ese genero";
         }
         return xgenero.toString();
@@ -99,5 +100,12 @@ public class Coleccion {
             throw new IErrorId("La id no existe o es negativa");
         }
         return msj;
+    }
+    public String mostrarTodo(){
+        StringBuilder all = new StringBuilder();
+        for(Biblioteca b : juegosYexpansiones.values()){
+            all.append(b + "\n");
+        }
+        return all.toString();
     }
 }
