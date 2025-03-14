@@ -6,6 +6,7 @@ import Clases.Juego;
 import Excepciones.EFechaDeLanzamientoNegativa;
 import Excepciones.EIdentificadorDuplicadoException;
 import Excepciones.EVersionNegativa;
+import Excepciones.IErrorId;
 
 import java.util.*;
 
@@ -36,13 +37,12 @@ public class Coleccion {
         }
         return "El elemento fue aniadido con exito!";
     }
-    public String delete (int id){
+    public String delete (int id) throws IErrorId{
         String msj = "El elemento se elimino con exito";
         if(juegosYexpansiones.containsKey(id)){
             juegosYexpansiones.remove(id);
-            return msj;
         }else{
-            msj ="El elemento no se encuentra dentro de la collecion";
+            throw new IErrorId("El elemento no se encuentra dentro de la collecion o el id ingresado es negativo");
         }
         return msj;
     }
@@ -68,7 +68,7 @@ public class Coleccion {
         }
         return xgenero.toString();
     }
-    public String modificarDatoString(int id, String tipoDeDato, String dato) throws EFechaDeLanzamientoNegativa,EVersionNegativa{
+    public String modificarDatoString(int id, String tipoDeDato, String dato) throws EFechaDeLanzamientoNegativa,EVersionNegativa, IErrorId {
         String msj = "Modificado con exito!";
         if(juegosYexpansiones.containsKey(id)){
             Biblioteca b = juegosYexpansiones.get(id);
@@ -95,6 +95,8 @@ public class Coleccion {
                     throw new EVersionNegativa("La version no puede ser negativa");
                 }
             }
+        }else{
+            throw new IErrorId("La id no existe o es negativa");
         }
         return msj;
     }
