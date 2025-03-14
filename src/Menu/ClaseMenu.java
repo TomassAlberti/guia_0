@@ -79,22 +79,18 @@ public class ClaseMenu {
                                 String dato;
                                 String datoAmodificar;
 
-
                                 System.out.println("Ingrese el id de el elemento a modificar");
                                 idAux = sn.nextInt();
                                 sn.nextLine();
 
                                 System.out.println("Ingrese el dato que quiera modificar");
                                 dato = sn.nextLine();
-                                sn.nextLine();
 
                                 System.out.println("Ingrese el dato");
                                 datoAmodificar = sn.nextLine();
-                                sn.nextLine();
 
                                 System.out.println(cole.modificarDatoString(idAux, dato, datoAmodificar));
-
-
+                                break;
                             }
                 case 6: {
                     String generoAux = " ";
