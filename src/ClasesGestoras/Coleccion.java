@@ -57,16 +57,17 @@ public class Coleccion {
         return xtitulo.toString();
     }
     public String mostrarXgenero(String genero){
+
         StringBuilder xgenero = new StringBuilder();
 
         for(Biblioteca b : juegosYexpansiones.values()){
             if(b.getGenero().equalsIgnoreCase(genero)){
                 xgenero.append(b);
             }
-        }
-        if(xgenero.length() <=0){
+        }if(xgenero.length()<0){
             return "No hay ningun elemento con ese genero";
         }
+
         return xgenero.toString();
     }
     public String modificarDatoString(int id, String tipoDeDato, String dato) throws EFechaDeLanzamientoNegativa,EVersionNegativa, IErrorId {

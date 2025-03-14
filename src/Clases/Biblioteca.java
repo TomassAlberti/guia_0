@@ -1,5 +1,7 @@
 package Clases;
 
+import java.util.Objects;
+
 public abstract class Biblioteca implements Comparable<Biblioteca> {
     public String titulo;
     public String creador;
@@ -50,6 +52,18 @@ public abstract class Biblioteca implements Comparable<Biblioteca> {
     @Override
     public int compareTo(Biblioteca o) {
         return this.titulo.compareTo(o.getGenero());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Biblioteca that)) return false;
+        return Objects.equals(Genero, that.Genero);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(Genero);
     }
 
     @Override

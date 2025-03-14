@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class ClaseMenu {
     public boolean mostrarMenu() {
         int opcion = 0;
-        Juego juego1 = new Juego("Rapidos y Furiosos", "Tomas Alberti", "Accion", 5, 1);
+        Juego juego1 = new Juego("Rapidos y Furiosos", "Tomas Alberti", "Accion", 20, 1);
         Juego juego2 = new Juego("Hogwarts Legacy", "Tomas Alberti", "Aventura", 2, 3);
         Juego juego3 = new Juego("Fornite", "Tomas Alberti", "Accion", 1, 3);
         Expansion exp1 = new Expansion("Superman", "El master", "Accion", 23, 23 / 02 / 24);
@@ -75,46 +75,35 @@ public class ClaseMenu {
                     break;
                 }
                 case 5: {
-                    int opcion1 = 0;
-                    do {
-                        System.out.println("ingrese 1 si desea modificar un juego");
-                        System.out.println("ingrese 2 si desea modificar una expansion");
-                        System.out.println("ingrese 0 para salir");
-                        opcion1 = sn.nextInt();
-
-                        switch (opcion1) {
-                            case 1: {
                                 int idAux;
                                 String dato;
                                 String datoAmodificar;
 
 
-                                System.out.println("Ingrese el id de el juego");
+                                System.out.println("Ingrese el id de el elemento a modificar");
                                 idAux = sn.nextInt();
                                 sn.nextLine();
 
-                                System.out.println("Ingrese el dato del juego que quiera modificar");
+                                System.out.println("Ingrese el dato que quiera modificar");
                                 dato = sn.nextLine();
                                 sn.nextLine();
 
-                                System.out.println("Ingrese el dato del juego");
+                                System.out.println("Ingrese el dato");
                                 datoAmodificar = sn.nextLine();
                                 sn.nextLine();
 
                                 System.out.println(cole.modificarDatoString(idAux, dato, datoAmodificar));
 
-                                break;
+
                             }
-                        }
-                    } while (opcion1 != 0);
-                }
                 case 6: {
-                    String generoAux;
+                    String generoAux = " ";
                     System.out.println("Ingrese el genero que desea ver");
-                    generoAux = sn.nextLine();
+                    generoAux = sn.next();
                     sn.nextLine();
 
                     System.out.println(cole.mostrarXgenero(generoAux));
+                    break;
                 }
                 case 7:{
                     System.out.println(cole.mostrarTodo());
